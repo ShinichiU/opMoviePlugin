@@ -1,0 +1,52 @@
+options:
+  charset: utf8
+
+Movie:
+  actAs: [Timestampable]
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    member_id: { type: integer(4), notnull: true }
+    title: { type: string, notnull: true }
+    body: { type: string, notnull: true }
+    file_name: { type: string, notnull: true }
+    public_flag: { type: integer(1), notnull: true, default: 1 }
+    size: { type: time(25), default: '00:00:00', notnull: true }
+    play_total: { type: integer(4), default: 0, notnull: true }
+    favo_total: { type: integer(4), default: 0, notnull: true }
+  relations:
+    Member:
+      foreignAlias: Movies
+      onDelete: cascade
+  indexes:
+    play_total:
+      fields: [play_total]
+    favo_total:
+      fields: [favo_total]
+    created_at:
+      fields: [created_at]
+    member_id_created_at:
+      fields: [member_id, created_at]
+    public_flag_craeted_at:
+      fields: [public_flag, created_at]
+
+MovieComment:
+  actAs: [Timestampable]
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    movie_id: { type: integer(4), notnull: true }
+    member_id: { type: integer(4), notnull: true }
+    body: { type: string, notnull: true }
+    time: { type: time(25), default: '00:00:00', notnull: true }
+    decoration_type: { type: integer(4), default: 0, notnull: true }
+  relations:
+    Movie:
+      foreignAlias: MovieComments
+      onDelete: cascade
+    Member:
+      foreignAlias: MovieComments
+      onDelete: cascade
+  indexes:
+    movie_id_time:
+      fields: [movie_id, time]
+    movie_id_member_id:
+      fields: [movie_id, member_id]
