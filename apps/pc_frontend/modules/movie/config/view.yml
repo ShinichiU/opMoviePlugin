@@ -1,0 +1,3 @@
+all:
+  stylesheets: [/opMoviePlugin/css/main]
+  javascripts: [/opMoviePlugin/js/swfobject/swfobject]

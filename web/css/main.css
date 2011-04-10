@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+#movieForm th {
+  width: 80px;
+}
+
+/*----------------------------------------------
+ * clearfix, overflow: hidden
+ *--------------------------------------------*/
+.movieDetailBox .partsHeading,
+.movieDetailBox dl,
+.prevNextLinkLine,
+.commentList dl,
+.recentList dl,
+.formTable .partsHeading,
+.formTable div.checkList ul {
+  zoom: 1;
+  overflow: visible;
+}
+
+.movieDetailBox .partsHeading:after,
+.movieDetailBox dl:after,
+.prevNextLinkLine:after,
+.commentList dl:after,
+.recentList dl:after,
+.formTable .partsHeading:after,
+.formTable div.checkList ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+/*==============================================================================
+ * 8. movieDetailBox
+ *----------------------------------------------------------------------------*/
+.movieDetailBox h3 {
+  float: left;
+  width: 66%;
+}
+
+.movieDetailBox .partsHeading p.public {
+  float: right;
+  width: 33%;
+  margin: 0;
+  text-align: right;
+}
+
+.movieDetailBox dl {
+  border: 1px solid #CCCCCC;
+}
+
+.movieDetailBox dt {
+  float: left;
+  width: 70px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.movieDetailBox dd {
+  zoom: 1;
+  min-height: 4.5em;
+  margin-left: 70px;
+  border-left: 1px solid #CCCCCC;
+}
+
+* html .movieDetailBox dd {
+  height: 4.5em;
+}
+
+.movieDetailBox dd div {
+  border-top: 1px solid #CCCCCC;
+}
+
+.movieDetailBox dd div p {
+  padding: 4px 3px;
+}
+
+.movieDetailBox dd div.title {
+  border-top: none;
+}
+
+.movieDetailBox dd div.body {
+  padding: 4px 3px;
+}
+
+.movieDetailBox dd div.movie {
+  padding: 4px 3px;
+}
+
+.movieDetailBox dd ul.photo {
+  padding: 4px 5px;
+}
+
+.movieDetailBox dd ul.photo li {
+  display: inline;
+  margin-left: 6px;
+}
+
+/*==============================================================================
+ * 19. prevNextLinkLine
+ *----------------------------------------------------------------------------*/
+.prevNextLinkLine p.prev {
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+
+.prevNextLinkLine p.next {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.block.prevNextLinkLine {
+  padding: 4px 10px;
+}
+
+/*==============================================================================
+ * movieSearchFormLine
+ *----------------------------------------------------------------------------*/
+#movieSearchFormLine p.form {
+  text-align: right;
+}
+
+.innerMovieMessage {
+  text-align: center;
+  border-top: none !important;
+}

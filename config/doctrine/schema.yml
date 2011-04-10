@@ -10,9 +10,10 @@ Movie:
     body: { type: string, notnull: true }
     file_name: { type: string, notnull: true }
     public_flag: { type: integer(1), notnull: true, default: 1 }
-    size: { type: time(25), default: '00:00:00', notnull: true }
+    size: { type: integer(4), default: 0, notnull: true }
     play_total: { type: integer(4), default: 0, notnull: true }
     favo_total: { type: integer(4), default: 0, notnull: true }
+    is_converted: { type: boolean, notnull: true, default: false }
   relations:
     Member:
       foreignAlias: Movies
@@ -24,10 +25,27 @@ Movie:
       fields: [favo_total]
     created_at:
       fields: [created_at]
-    member_id_created_at:
-      fields: [member_id, created_at]
-    public_flag_craeted_at:
-      fields: [public_flag, created_at]
+    is_converted_member_id_created_at:
+      fields: [is_converted, member_id, created_at]
+    is_converted_public_flag_craeted_at:
+      fields: [is_converted, public_flag, created_at]
+
+MoviePlayRank:
+  actAs: [Timestampable]
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    member_id: { type: integer(4), notnull: true }
+    movie_id: { type: integer(4), notnull: true }
+  relations:
+    Member:
+      foreignAlias: MoviePlayRank
+      onDelete: cascade
+    Movie:
+      foreignAlias: MoviePlayRanks
+      onDelete: cascade
+  indexes:
+    member_id_movie_id:
+      fields: [member_id, movie_id]
 
 MovieComment:
   actAs: [Timestampable]
@@ -36,7 +54,7 @@ MovieComment:
     movie_id: { type: integer(4), notnull: true }
     member_id: { type: integer(4), notnull: true }
     body: { type: string, notnull: true }
-    time: { type: time(25), default: '00:00:00', notnull: true }
+    flame: { type: integer(4), default: 0, notnull: true }
     decoration_type: { type: integer(4), default: 0, notnull: true }
   relations:
     Movie:
@@ -46,7 +64,7 @@ MovieComment:
       foreignAlias: MovieComments
       onDelete: cascade
   indexes:
-    movie_id_time:
-      fields: [movie_id, time]
+    movie_id_flame:
+      fields: [movie_id, flame]
     movie_id_member_id:
       fields: [movie_id, member_id]

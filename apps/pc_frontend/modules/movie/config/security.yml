@@ -1,0 +1,9 @@
+all:
+  is_secure: true
+  credentials: SNSMember
+
+getBin:
+  is_secure: false
+
+getImageBin:
+  is_secure: false

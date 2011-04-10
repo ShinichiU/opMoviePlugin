@@ -5,17 +5,8 @@
  *
  * @package    OpenPNE
  * @subpackage movie
- * @author     Your name here
+ * @author     Shinichi Urabe <urabe@tejimaya.com>
  */
-class movieActions extends sfActions
+class movieActions extends opMVMovieActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfWebRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
 }

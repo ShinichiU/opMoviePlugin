@@ -7,13 +7,33 @@
  */
 class PluginMovieTable extends Doctrine_Table
 {
-    /**
-     * Returns an instance of this class.
-     *
-     * @return object PluginMovieTable
-     */
-    public static function getInstance()
+  const PUBLIC_FLAG_SNS     = 1;
+  const PUBLIC_FLAG_FRIEND  = 2;
+
+  protected static $publicFlags = array(
+    self::PUBLIC_FLAG_SNS     => 'All Members',
+    self::PUBLIC_FLAG_FRIEND  => 'Only %my_friend%',
+  );
+
+  public function getPublicFlags()
+  {
+    $publicFlags = array();
+
+    foreach (self::$publicFlags as $key => $publicFlag)
     {
-        return Doctrine_Core::getTable('PluginMovie');
+      $publicFlags[$key] = sfContext::getInstance()->getI18N()->__($publicFlag, array('%my_friend%' => Doctrine::getTable('SnsTerm')->get('my_friend')->pluralize()->titleize()), 'publicFlags');
     }
+
+    return $publicFlags;
+  }
+
+  /**
+   * Returns an instance of this class.
+   *
+   * @return object PluginMovieTable
+   */
+  public static function getInstance()
+  {
+    return Doctrine_Core::getTable('PluginMovie');
+  }
 }

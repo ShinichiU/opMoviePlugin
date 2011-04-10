@@ -1,0 +1,76 @@
+movie:
+  url: /movie
+  param: { module: movie, action: list }
+
+movie_show:
+  url: /movie/:id
+  class: sfDoctrineRoute
+  options: { model: Movie, type: object }
+  param: { module: movie, action: show }
+  requirements:
+    id: \d+
+
+movie_new:
+  url: /movie/new
+  param: { module: movie, action: new }
+
+movie_create:
+  url: /movie/create
+  param: { module: movie, action: create }
+  requirements:
+    sf_method: [post]
+
+movie_edit:
+  url: /movie/edit/:id
+  class: sfDoctrineRoute
+  options: { model: Movie, type: object }
+  param: { module: movie, action: edit }
+  requirements:
+    id: \d+
+
+movie_update:
+  url: /movie/update/:id
+  class: sfDoctrineRoute
+  options: { model: Movie, type: object }
+  param: { module: movie, action: update }
+  requirements:
+    id: \d+
+    sf_method: [post]
+
+movie_delete_confirm:
+  url: /movie/deleteConfirm/:id
+  class: sfDoctrineRoute
+  options: { model: Movie, type: object }
+  param: { module: movie, action: deleteConfirm }
+  requirements:
+    id: \d+
+
+movie_delete:
+  url: /movie/delete/:id
+  class: sfDoctrineRoute
+  options: { model: Movie, type: object }
+  param: { module: movie, action: delete }
+  requirements:
+    id: \d+
+    sf_method: [post]
+
+movie_bin:
+  url: /movie/getBin/:id
+  class: sfRequestRoute
+  param: { module: movie, action: getBin }
+  requirements:
+    id: \d+
+    sf_method: [get, post]
+
+movie_image_bin:
+  url: /movie/getImageBin/:size/:id
+  class: sfRequestRoute
+  param: { module: movie, action: getImageBin }
+  requirements:
+    id: \d+
+    size: (48|76|120|180|240|320|500)
+    sf_method: [get, post]
+
+movie_nodefault:
+  url: /movie/*
+  param: { module: default, action: error }
