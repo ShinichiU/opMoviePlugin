@@ -10,6 +10,9 @@ class PluginMovieTable extends Doctrine_Table
   const PUBLIC_FLAG_SNS     = 1;
   const PUBLIC_FLAG_FRIEND  = 2;
 
+  const PLAY_TOTAL = 'getPlayTotal';
+  const FAVO_TOTAL = 'getFavoTotal';
+
   protected static $publicFlags = array(
     self::PUBLIC_FLAG_SNS     => 'All Members',
     self::PUBLIC_FLAG_FRIEND  => 'Only %my_friend%',
@@ -25,6 +28,16 @@ class PluginMovieTable extends Doctrine_Table
     }
 
     return $publicFlags;
+  }
+
+  public function getTotalList($limit = 9, $offset = 0)
+  {
+    return $this->createQuery()
+      ->orderBy('play_total DESC')
+      ->addOrderBy('created_at DESC')
+      ->limit($limit)
+      ->offset($offset)
+      ->execute();
   }
 
   /**

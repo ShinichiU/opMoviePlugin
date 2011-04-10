@@ -16,7 +16,13 @@ class opMVMovieActions extends opMVActions
   */
   public function executeList(sfWebRequest $request)
   {
-    return sfView::NONE;
+    if (!$this->limit)
+    {
+      $this->limit = 20;
+    }
+    $this->offset = $request->getParameter('offset', 0);
+    $this->totalList = Doctrine_Core::getTable('Movie')
+      ->getTotalList($this->limit, $this->offset);
   }
 
  /**

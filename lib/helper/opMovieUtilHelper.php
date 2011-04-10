@@ -16,3 +16,10 @@ function op_movie_gen_img_tag($movie, $size = 500)
     'alt' => $movie->title
   ));
 }
+
+function op_movie_title_count($movie, $method)
+{
+  $method = is_callable(array($movie, $method)) ? $method : 'getPlayTotal';
+
+  return sprintf('%s (%s)', $movie->title, call_user_func(array($movie, $method)));
+}

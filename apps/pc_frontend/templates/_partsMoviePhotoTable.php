@@ -2,13 +2,13 @@
 <?php if (count($options->list)): ?><? // if 1 ?>
 
 <?php
-$options->setDefault('row', 2);
-$options->setDefault('col', 5);
+$options->setDefault('col', 4);
 $options->setDefault('type', 'full');
-?>
 
+$options->addRequiredOption('link_to');
+?>
 <table>
-<?php $row = min($options->row, ceil(count($options->list) / $options->col)) ?>
+<?php $row = ceil(count($options->list) / $options->col) ?>
 <?php for ($i = 1; $row >= $i; $i++): ?><? // for 1 ?>
 
 <?php if ($options->type === 'full' || $options->type === 'only_image'): ?><? // if 2 ?>
@@ -19,7 +19,7 @@ $options->setDefault('type', 'full');
 <?php if (0 === $j): ?><? // if 4 ?>
 <p class="crown"><?php echo op_image_tag('icon_crown.gif', array('alt' => 'No.1')) ?></p>
 <?php endif ?><? // endif 4 ?>
-<?php echo link_to(op_movie_gen_img_tag($options->list[$j], 120), '@movie_show?id='.$options->list[$j]->id) ?>
+<?php echo link_to(op_movie_gen_img_tag($options->list[$j], 180), '@movie_show?id='.$options->list[$j]->id) ?>
 <?php endif ?><? // endif 3 ?>
 </td>
 <?php endfor ?><? // endfor 2 ?>
@@ -41,3 +41,10 @@ $options->setDefault('type', 'full');
 </table>
 
 <?php endif ?><? // endif 1 ?>
+
+<?php if ($options->offset > 0): ?><? // if 3 ?>
+<?php echo link_to(__('Prev'), $options->getRaw('link_to_pager').($options->offset - 1)) ?>
+<?php endif ?><? // if 3 ?>
+<?php if (count($options->list) == $options->limit): ?><? // if 1 ?>
+<?php echo link_to(__('Next'), $options->getRaw('link_to_pager').($options->offset + 1)) ?>
+<?php endif ?><? // if 3 ?>

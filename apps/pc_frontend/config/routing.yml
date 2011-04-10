@@ -2,6 +2,12 @@ movie:
   url: /movie
   param: { module: movie, action: list }
 
+movie_offset:
+  url: /movie/p/:offset
+  param: { module: movie, action: list }
+  requirements:
+    offset: \d+
+
 movie_show:
   url: /movie/:id
   class: sfDoctrineRoute

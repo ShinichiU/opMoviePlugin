@@ -1,0 +1,34 @@
+movieTotalListBox:
+  caption:
+    ja_JP: "動画リスト"
+  description:
+    ja_JP: "再生数の多い動画リストを表示します"
+  component: [movie, totalListBox]
+  config:
+    row:
+      Name:      "row"
+      Caption:   "表示する行"
+      FormType:  "select"
+      ValueType:  "int"
+      IsRequired: true
+      Default:    2
+      Choices:    {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6}
+    col:
+      Name:      "col"
+      Caption:   "表示する列"
+      FormType:  "select"
+      ValueType:  "int"
+      IsRequired: true
+      Default:    5
+      Choices:    {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6}
+    type:
+      Name:      "type"
+      Caption:   "表示タイプ"
+      FormType:  "radio"
+      ValueType: "text"
+      IsRequired: true
+      Default:    "full"
+      Choices:
+        full:       "画像と名前の両方を表示"
+        only_image: "画像のみ表示"
+        only_name:  "名前のみ表示"

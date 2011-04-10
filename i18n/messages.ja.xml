@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="">
+        <source>Movie Play Total List</source>
+        <target>動画再生ランキング</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Post your movie</source>
+        <target>動画を投稿する</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Show all</source>
+        <target>動画すべてを見る</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Movie List</source>
+        <target>動画一覧</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Title</source>
+        <target>動画のタイトル</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Body</source>
+        <target>動画本文</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Public flag</source>
+        <target>公開範囲</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Save</source>
+        <target>動画を保存</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Movie</source>
+        <target>動画</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Post a movie</source>
+        <target>動画投稿</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>this file is not supported.</source>
+        <target>サポートされていない動画です</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Movie being converted now. Please wait or reload this page.</source>
+        <target>動画をコンバート中です！しばらくお待ちいただくか、再読込ボタンを押してください</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>reload</source>
+        <target>再読込</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Edit this movie</source>
+        <target>動画の内容を編集</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Delete this movie (confirm)</source>
+        <target>動画削除 (確認画面)</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Movie of %1%</source>
+        <target>%1% の動画</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Movie delete confirm</source>
+        <target>動画削除確認</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Delete</source>
+        <target>動画を削除する</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Cancel</source>
+        <target>やっぱりやめる</target>
+      </trans-unit>
+      <trans-unit id="">
+        <source>Edit the movie</source>
+        <target>動画編集</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

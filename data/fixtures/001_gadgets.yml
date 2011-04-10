@@ -1,0 +1,5 @@
+Gadget:
+  gadget_movie_list_box:
+    type: "sideMenu"
+    name: "movieListBox"
+    sort_order: 40
