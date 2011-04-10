@@ -258,8 +258,8 @@ abstract class PluginMovie extends BaseMovie
       $dst_w = $src_w / ($src_h / (int)$size);
     }
 
-    $dst_img = @imagecreate($dst_w, $dst_h);
-    @imagecopyresized($dst_img, $src_img, 0, 0, 0, 0, $dst_w, $dst_h, $src_w, $src_h);
+    $dst_img = @imagecreatetruecolor($dst_w, $dst_h);
+    @imagecopyresampled($dst_img, $src_img, 0, 0, 0, 0, $dst_w, $dst_h, $src_w, $src_h);
 
     header('Cache-Control: public');
     header('Pragma: public');
