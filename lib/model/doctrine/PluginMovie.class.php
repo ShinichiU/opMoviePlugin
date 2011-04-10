@@ -220,17 +220,30 @@ abstract class PluginMovie extends BaseMovie
       $frame = $this->getMovieFrame($num);
     }
 
+    $tmpname = tempnam(sys_get_temp_dir(), 'MVIMG');
     if (!is_callable(array($frame, 'toGDImage')))
     {
-      $bin = file_get_contents(implode(DIRECTORY_SEPARATOR, array(dirname(__FILE__), '..', '..', '..', 'data', 'images', 'no_image.jpg')));
+      $bin = file_get_contents(implode(DIRECTORY_SEPARATOR, array(
+        dirname(__FILE__),
+        '..',
+        '..',
+        '..',
+        'data',
+        'images',
+        'no_image.jpg',
+      )));
+      file_put_contents($tmpname, $bin);
     }
     else
     {
-      $bin = $frame->toGDImage();
+      $image = $frame->toGDImage();
+      if (!$image)
+      {
+        return false;
+      }
+      imagejpeg($image, $tmpname);
     }
 
-    $tmpname = tempnam(sys_get_temp_dir(), 'MVIMG');
-    file_put_contents($tmpname, $bin);
     list($src_w, $src_h) = getimagesize($tmpname);
     $src_img = imagecreatefromjpeg($tmpname);
 
