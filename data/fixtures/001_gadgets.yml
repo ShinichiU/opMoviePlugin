@@ -1,5 +1,5 @@
 Gadget:
   gadget_movie_list_box:
     type: "sideMenu"
-    name: "movieListBox"
+    name: "movieTotalListBox"
     sort_order: 40

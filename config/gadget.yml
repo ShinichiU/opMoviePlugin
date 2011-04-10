@@ -11,7 +11,7 @@ movieTotalListBox:
       FormType:  "select"
       ValueType:  "int"
       IsRequired: true
-      Default:    2
+      Default:    5
       Choices:    {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6}
     col:
       Name:      "col"
@@ -19,7 +19,7 @@ movieTotalListBox:
       FormType:  "select"
       ValueType:  "int"
       IsRequired: true
-      Default:    5
+      Default:    2
       Choices:    {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6}
     type:
       Name:      "type"
